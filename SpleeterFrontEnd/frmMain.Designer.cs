@@ -217,7 +217,7 @@ namespace SpleeterFrontEnd
             this.nudOffset.Name = "nudOffset";
             this.nudOffset.Size = new System.Drawing.Size(128, 20);
             this.nudOffset.TabIndex = 9;
-            this.nudOffset.ValueChanged += new System.EventHandler(this.nudOffset_ValueChanged);
+            this.nudOffset.Leave += new System.EventHandler(this.nudOffset_Leave);
             // 
             // lblDuration
             // 
@@ -250,7 +250,7 @@ namespace SpleeterFrontEnd
             0,
             0,
             0});
-            this.nudDuration.ValueChanged += new System.EventHandler(this.nudDuration_ValueChanged);
+            this.nudDuration.Leave += new System.EventHandler(this.nudDuration_Leave);
             // 
             // lblBitRate
             // 

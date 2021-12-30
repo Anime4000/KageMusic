@@ -19,6 +19,8 @@ namespace SpleeterFrontEnd
 
         public frmMain()
         {
+            new frmSplashScreen().ShowDialog();
+
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.Sizable;
             Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
@@ -215,7 +217,18 @@ namespace SpleeterFrontEnd
 
         private void lstFile_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lstFile.SelectedItems.Count > 0)
+            {
+                var data = lstFile.SelectedItems[0].Tag as FileQueue;
 
+                cboAiEngine.SelectedValue = data.Engine;
+                cboStem.SelectedValue = data.Stem;
+                cboBitRate.SelectedValue = data.OutputBitrate;
+                cboCodec.SelectedValue = data.OutputFormat;
+                nudOffset.Value = data.Offset;
+                nudDuration.Value = data.Duration;
+                chkMWF.Checked = data.UseMWF;
+            }
         }
 
         private void lstFile_DragDrop(object sender, DragEventArgs e)
@@ -305,25 +318,19 @@ namespace SpleeterFrontEnd
             }
         }
 
-        private void nudOffset_ValueChanged(object sender, EventArgs e)
+        private void nudOffset_Leave(object sender, EventArgs e)
         {
-            if ((sender as Control).Focused)
+            foreach (ListViewItem queue in lstFile.SelectedItems)
             {
-                foreach (ListViewItem queue in lstFile.SelectedItems)
-                {
-                    (queue.Tag as FileQueue).Offset = Convert.ToInt32(nudOffset.Value);
-                }
+                (queue.Tag as FileQueue).Offset = Convert.ToInt32(nudOffset.Value);
             }
         }
 
-        private void nudDuration_ValueChanged(object sender, EventArgs e)
+        private void nudDuration_Leave(object sender, EventArgs e)
         {
-            if ((sender as Control).Focused)
+            foreach (ListViewItem queue in lstFile.SelectedItems)
             {
-                foreach (ListViewItem queue in lstFile.SelectedItems)
-                {
-                    (queue.Tag as FileQueue).Duration = Convert.ToInt32(nudDuration.Value);
-                }
+                (queue.Tag as FileQueue).Duration = Convert.ToInt32(nudDuration.Value);
             }
         }
 
