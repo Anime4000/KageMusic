@@ -5,6 +5,7 @@ KageMusic is Front End for Spleeter, self-contain.
 
 # Cross Platform
 KageMusic can be run on Linux (Ubuntu) or macOS via Mono Runtime, however `System` folder adjust first:
+
 	1. Open Terminal
 	2. Navigate where `SpleeterFrontEnd.exe` reside
 	3. Delete everything except `pretrained_models` folder
@@ -14,6 +15,7 @@ KageMusic can be run on Linux (Ubuntu) or macOS via Mono Runtime, however `Syste
 
 # Update Spleeter
 To update Spleeter library, follow this step:
+
 	1. Open Command Prompt/Terminal
 	2. Navigate where `SpleeterFrontEnd.exe` reside
 	3. `pip install spleeter -U`
