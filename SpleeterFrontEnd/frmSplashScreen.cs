@@ -28,7 +28,7 @@ namespace SpleeterFrontEnd
 
         private void frmSplashScreen_Load(object sender, EventArgs e)
         {
-            BackgroundImage = Bitmap.FromFile(Path.Combine("UX", "data.jj"));
+            BackgroundImage = KoteKeras.Properties.Resources.SplashScreen;
         }
 
         private void frmSplashScreen_Shown(object sender, EventArgs e)

@@ -114,8 +114,8 @@ namespace SpleeterFrontEnd
             var w = pbxBanner.Width;
             var h = pbxBanner.Height;
 
-            var b1 = Bitmap.FromFile(Path.Combine("UX", "data1.pp"));
-            var b2 = Bitmap.FromFile(Path.Combine("UX", "data2.pp"));
+            var b1 = KoteKeras.Properties.Resources.BannerA;
+            var b2 = KoteKeras.Properties.Resources.BannerB;
             var iW = b1.Width;
             var iH = b1.Height;
 
