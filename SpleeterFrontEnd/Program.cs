@@ -18,6 +18,8 @@ namespace SpleeterFrontEnd
         {
             Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
+            ProcessManager.SetEnvironment();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());

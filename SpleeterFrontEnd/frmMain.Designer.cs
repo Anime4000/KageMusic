@@ -29,6 +29,7 @@ namespace SpleeterFrontEnd
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pbxBanner = new System.Windows.Forms.PictureBox();
             this.btnFileAdd = new System.Windows.Forms.Button();
             this.btnFileRemove = new System.Windows.Forms.Button();
@@ -57,6 +58,8 @@ namespace SpleeterFrontEnd
             this.txtSavePath = new System.Windows.Forms.TextBox();
             this.btnSetSavePath = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
+            this.lblSplit1 = new System.Windows.Forms.Label();
+            this.timerGetVersion = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).BeginInit();
             this.gpbOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).BeginInit();
@@ -202,7 +205,7 @@ namespace SpleeterFrontEnd
             this.chkMWF.Name = "chkMWF";
             this.chkMWF.Size = new System.Drawing.Size(228, 21);
             this.chkMWF.TabIndex = 11;
-            this.chkMWF.Text = "Use MWF (Multichannel Wiener Filtering)";
+            this.chkMWF.Text = "Use MWF (Multi-channel Wiener Filtering)";
             this.chkMWF.UseVisualStyleBackColor = true;
             this.chkMWF.CheckedChanged += new System.EventHandler(this.chkMWF_CheckedChanged);
             // 
@@ -221,7 +224,8 @@ namespace SpleeterFrontEnd
             // 
             // lblDuration
             // 
-            this.lblDuration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDuration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDuration.Location = new System.Drawing.Point(105, 116);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(280, 23);
@@ -254,6 +258,8 @@ namespace SpleeterFrontEnd
             // 
             // lblBitRate
             // 
+            this.lblBitRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBitRate.Location = new System.Drawing.Point(105, 66);
             this.lblBitRate.Name = "lblBitRate";
             this.lblBitRate.Size = new System.Drawing.Size(280, 23);
@@ -263,6 +269,8 @@ namespace SpleeterFrontEnd
             // 
             // cboBitRate
             // 
+            this.cboBitRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboBitRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBitRate.FormattingEnabled = true;
             this.cboBitRate.Location = new System.Drawing.Point(105, 92);
@@ -373,18 +381,35 @@ namespace SpleeterFrontEnd
             // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(637, 76);
+            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbout.Location = new System.Drawing.Point(604, 76);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(75, 32);
+            this.btnAbout.Size = new System.Drawing.Size(100, 32);
             this.btnAbout.TabIndex = 2;
             this.btnAbout.Text = "&About";
             this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
+            // lblSplit1
+            // 
+            this.lblSplit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSplit1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSplit1.Location = new System.Drawing.Point(710, 76);
+            this.lblSplit1.Name = "lblSplit1";
+            this.lblSplit1.Size = new System.Drawing.Size(2, 32);
+            this.lblSplit1.TabIndex = 10;
+            // 
+            // timerGetVersion
+            // 
+            this.timerGetVersion.Interval = 1000;
+            this.timerGetVersion.Tick += new System.EventHandler(this.timerGetVersion_Tick);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.lblSplit1);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnSetSavePath);
             this.Controls.Add(this.txtSavePath);
@@ -445,6 +470,8 @@ namespace SpleeterFrontEnd
         private System.Windows.Forms.Label lblBitRate;
         private System.Windows.Forms.ComboBox cboBitRate;
         private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Label lblSplit1;
+        private System.Windows.Forms.Timer timerGetVersion;
     }
 }
 

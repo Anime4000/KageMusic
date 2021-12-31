@@ -12,25 +12,30 @@ class ProcessManager
 {
 	private static List<int> ProcessId = new List<int>();
 
+	private static string ROOT = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "SystemAI", "spleeter");
+
+	internal static void SetEnvironment()
+    {
+		var PYROOT = Path.Combine(ROOT, "python");
+		var PYCODE = Path.Combine(PYROOT, "Scripts");
+		var PYPKG = Path.Combine(PYROOT, "Lib", "site-packages");
+
+		var PATH = Environment.GetEnvironmentVariable("PATH");
+
+		Environment.SetEnvironmentVariable("PATH", $"{ROOT};{PYROOT};{PYCODE};{PATH}");
+		Environment.SetEnvironmentVariable("PYTHONPATH", $"{PYPKG}");
+	}
+
 	internal static int Execute(string args)
 	{
-		var PATH = Environment.GetEnvironmentVariable("PATH");
-		var VENV = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "System");
-		var FFMP = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "FFmpeg");
-
-		Environment.SetEnvironmentVariable("PATH", $"{Path.Combine(VENV, "Scripts")};{FFMP};{PATH}");
-
-		Environment.SetEnvironmentVariable("ARGS", args); // allow unicode text in Command Prompt/Terminal
-
         Process proc = new Process
 		{
-			StartInfo = new ProcessStartInfo("cmd")
+			StartInfo = new ProcessStartInfo("spleeter", $"separate {args}")
 			{
 				CreateNoWindow = true,
 				UseShellExecute = false,
-				WorkingDirectory = VENV,
+				WorkingDirectory = ROOT,
 				RedirectStandardError = true,
-				RedirectStandardInput = true,
 				RedirectStandardOutput = true,
 			}
 		};
@@ -39,17 +44,32 @@ class ProcessManager
 
 		ProcessId.Add(proc.Id);
 
-		proc.StandardInput.WriteLine($"activate");
-		proc.StandardInput.WriteLine($"spleeter separate %ARGS% && exit");
-
 		proc.WaitForExit();
-
-		proc.StandardInput.Flush();
-		proc.StandardInput.Close();
 
 		ProcessId.Remove(proc.Id);
 
 		return proc.ExitCode;
+	}
+
+	internal static string GetVersion()
+    {
+		Process proc = new Process
+		{
+			StartInfo = new ProcessStartInfo("spleeter", "--version")
+			{
+				CreateNoWindow = true,
+				UseShellExecute = false,
+				WorkingDirectory = ROOT,
+				RedirectStandardError = true,
+				RedirectStandardOutput = true,
+			}
+		};
+
+		proc.Start();
+
+		proc.WaitForExit();
+
+		return proc.StandardOutput.ReadToEnd();
 	}
 
 	internal static void Stop()

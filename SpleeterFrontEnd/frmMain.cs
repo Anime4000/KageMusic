@@ -24,6 +24,7 @@ namespace SpleeterFrontEnd
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.Sizable;
             Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
+            Text = $"KageMusic v{Application.ProductVersion}";
 
             bgThread.DoWork += bgThread_DoWork;
             bgThread.RunWorkerCompleted += bgThread_RunWorkerCompleted;
@@ -98,6 +99,10 @@ namespace SpleeterFrontEnd
 
             chkSavePath.Checked = Properties.Settings.Default.SavePathEnable;
             txtSavePath.Text = Properties.Settings.Default.SavePath;
+
+            cboBitRate.Enabled = (cboCodec.SelectedIndex > 1);
+
+            timerGetVersion.Start();
         }
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -174,6 +179,11 @@ namespace SpleeterFrontEnd
             {
                 item.Remove();
             }
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            new KoteKeras.frmAbout().ShowDialog();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -309,6 +319,8 @@ namespace SpleeterFrontEnd
 
         private void cboCodec_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cboBitRate.Enabled = (cboCodec.SelectedIndex > 1);
+
             if ((sender as Control).Focused)
             {
                 foreach (ListViewItem queue in lstFile.SelectedItems)
@@ -468,6 +480,12 @@ namespace SpleeterFrontEnd
                 bgThread.Dispose();
                 ProcessManager.Stop();
             }
+        }
+
+        private void timerGetVersion_Tick(object sender, EventArgs e)
+        {
+            Text += $" ({ProcessManager.GetVersion()})";
+            timerGetVersion.Stop();
         }
     }
 }

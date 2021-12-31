@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Split voice & music also instrument into multiple files")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CureComp Technology Trading & Services")]
-[assembly: AssemblyProduct("Spleeter")]
+[assembly: AssemblyProduct("Spleeter Front-End")]
 [assembly: AssemblyCopyright("© 2022 Anime4000, deezer. All rights reserved.")]
 [assembly: AssemblyTrademark("Anime4000, deezer, Google TensorFlow, LibROSA")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0")]
-[assembly: AssemblyFileVersion("1.0")]
+[assembly: AssemblyVersion("1.12")]
+[assembly: AssemblyFileVersion("1.12")]
