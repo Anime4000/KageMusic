@@ -19,7 +19,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={auto}\CureComp Technology\{#MyAppName}
+DefaultDirName={{auto}\CureComp Technology\{#MyAppName}
 DisableDirPage=yes
 DefaultGroupName={#MyAppName}
 
@@ -27,13 +27,16 @@ LicenseFile=LICENSE
 InfoBeforeFile=README.md
 InfoAfterFile=CHANGELOG.md
 SetupIconFile=KoteKeras\Resources\Installer.ico
+WizardImageFile=KoteKeras\Resources\WizImg100p.bmp,KoteKeras\Resources\WizImg125p.bmp,KoteKeras\Resources\WizImg150p.bmp,KoteKeras\Resources\WizImg175p.bmp,KoteKeras\Resources\WizImg200p.bmp,KoteKeras\Resources\WizImg225p.bmp,KoteKeras\Resources\WizImg250p.bmp
 
-Compression=lzma2/ultra64
-SolidCompression=yes
+DisableWelcomePage=no
 
 CloseApplications=force
 PrivilegesRequired=admin
 ArchitecturesInstallIn64BitMode=x64
+
+Compression=lzma2/ultra64
+SolidCompression=yes
 
 OutputDir=.\
 OutputBaseFilename=setup_kagemusic_{#MyAppVersion}
@@ -50,5 +53,8 @@ Source: "C:\Windows\SystemAI\spleeter\*"; DestDir: "{win}\SystemAI\spleeter"; Fl
 Name: "{app}"; Permissions: everyone-full
 Name: "{win}\SystemAI\spleeter"; Permissions: everyone-full
 
+[Tasks]
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: checkedonce
+
 [Icons]
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; IconFilename: "{app}\{#MyAppExeName}"; Comment: "Extract vocal and music instrument from single audio file.";
+Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; IconFilename: "{app}\{#MyAppExeName}"; Comment: "Extract vocal and music instrument from single audio file."; Tasks: desktopicon
