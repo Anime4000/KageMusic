@@ -1,0 +1,3 @@
+# Version 1.12 (2022/1/1)
+New year 2022, KageMusic is born to the world!
+This is first release, no change since then...
