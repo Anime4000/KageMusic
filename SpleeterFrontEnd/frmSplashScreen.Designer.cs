@@ -56,7 +56,7 @@ namespace SpleeterFrontEnd
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSplashScreen";
+            this.Text = "K A G E M U S I C";
             this.Load += new System.EventHandler(this.frmSplashScreen_Load);
             this.Shown += new System.EventHandler(this.frmSplashScreen_Shown);
             this.ResumeLayout(false);

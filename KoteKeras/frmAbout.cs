@@ -25,12 +25,12 @@ namespace KoteKeras
 
         }
 
-        private void frmAbout_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmAbout_Shown(object sender, EventArgs e)
         {
-            Dispose();
+
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private void frmAbout_FormClosed(object sender, FormClosedEventArgs e)
         {
             Dispose();
         }
@@ -38,6 +38,16 @@ namespace KoteKeras
         private void lblLink_Click(object sender, EventArgs e)
         {
             Process.Start(lblLink.Text);
+        }
+
+        private void lblCopyright_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.curecomp.pro/");
+        }
+
+        private void pbxBannner_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.pixiv.net/en/artworks/89771998");
         }
     }
 }

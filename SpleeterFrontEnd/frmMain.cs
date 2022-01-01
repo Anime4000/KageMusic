@@ -484,7 +484,7 @@ namespace SpleeterFrontEnd
 
         private void timerGetVersion_Tick(object sender, EventArgs e)
         {
-            Text += $" ({ProcessManager.GetVersion()})";
+            Text += $" ({ProcessManager.GetVersion()}) - Let's split voice and music!";
             timerGetVersion.Stop();
         }
     }

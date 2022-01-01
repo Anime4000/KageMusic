@@ -3,7 +3,7 @@
 
 #define MyAppName "KageMusic"
 #define MyAppVersion "1.12"
-#define MyAppPublisher "Anime4000"
+#define MyAppPublisher "HITOHA"
 #define MyAppURL "https://github.com/Anime4000/KageMusic"
 #define MyAppExeName "SpleeterFrontEnd.exe"
 
@@ -19,8 +19,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={{auto}\CureComp Technology\{#MyAppName}
-DisableDirPage=yes
+DefaultDirName={commonpf}\{#MyAppPublisher}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 
 LicenseFile=LICENSE

@@ -29,25 +29,12 @@ namespace KoteKeras
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCopyright = new System.Windows.Forms.Label();
             this.lblLink = new System.Windows.Forms.Label();
             this.pbxBannner = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBannner)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnOK
-            // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(288, 526);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(100, 32);
-            this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "&OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // label1
             // 
@@ -63,20 +50,22 @@ namespace KoteKeras
             this.label1.Text = "K A G E M U S I C";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblCopyright
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 526);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(270, 32);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "© 2022 Anime4000, Deezer, Google\r\n© 2022 CureComp Technology Trading && Services\r" +
+            this.lblCopyright.BackColor = System.Drawing.Color.Transparent;
+            this.lblCopyright.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCopyright.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lblCopyright.ForeColor = System.Drawing.Color.White;
+            this.lblCopyright.Location = new System.Drawing.Point(12, 539);
+            this.lblCopyright.Name = "lblCopyright";
+            this.lblCopyright.Size = new System.Drawing.Size(376, 32);
+            this.lblCopyright.TabIndex = 2;
+            this.lblCopyright.Text = "© 2022 Anime4000, Deezer, Google\r\n© 2022 CureComp Technology Trading && Services\r" +
     "\n";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblCopyright.Click += new System.EventHandler(this.lblCopyright_Click);
             // 
             // lblLink
             // 
@@ -95,15 +84,18 @@ namespace KoteKeras
             // 
             // pbxBannner
             // 
-            this.pbxBannner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pbxBannner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxBannner.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbxBannner.Image = global::KoteKeras.Properties.Resources.AboutBG;
-            this.pbxBannner.Location = new System.Drawing.Point(0, 64);
+            this.pbxBannner.Location = new System.Drawing.Point(0, 74);
             this.pbxBannner.Name = "pbxBannner";
             this.pbxBannner.Size = new System.Drawing.Size(400, 450);
             this.pbxBannner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxBannner.TabIndex = 4;
             this.pbxBannner.TabStop = false;
+            this.pbxBannner.Click += new System.EventHandler(this.pbxBannner_Click);
             // 
             // frmAbout
             // 
@@ -111,12 +103,11 @@ namespace KoteKeras
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(400, 570);
+            this.ClientSize = new System.Drawing.Size(400, 580);
             this.Controls.Add(this.pbxBannner);
             this.Controls.Add(this.lblLink);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnOK);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Tahoma", 8F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -126,19 +117,18 @@ namespace KoteKeras
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "About";
+            this.Text = "About KageMusic";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAbout_FormClosed);
             this.Load += new System.EventHandler(this.frmAbout_Load);
+            this.Shown += new System.EventHandler(this.frmAbout_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBannner)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCopyright;
         private System.Windows.Forms.Label lblLink;
         private System.Windows.Forms.PictureBox pbxBannner;
     }

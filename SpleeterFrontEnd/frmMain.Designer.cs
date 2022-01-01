@@ -60,6 +60,8 @@ namespace SpleeterFrontEnd
             this.btnAbout = new System.Windows.Forms.Button();
             this.lblSplit1 = new System.Windows.Forms.Label();
             this.timerGetVersion = new System.Windows.Forms.Timer(this.components);
+            this.lblSplit2 = new System.Windows.Forms.Label();
+            this.lblLink = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).BeginInit();
             this.gpbOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).BeginInit();
@@ -404,11 +406,32 @@ namespace SpleeterFrontEnd
             this.timerGetVersion.Interval = 1000;
             this.timerGetVersion.Tick += new System.EventHandler(this.timerGetVersion_Tick);
             // 
+            // lblSplit2
+            // 
+            this.lblSplit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSplit2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSplit2.Location = new System.Drawing.Point(88, 76);
+            this.lblSplit2.Name = "lblSplit2";
+            this.lblSplit2.Size = new System.Drawing.Size(2, 32);
+            this.lblSplit2.TabIndex = 11;
+            // 
+            // lblLink
+            // 
+            this.lblLink.Enabled = false;
+            this.lblLink.Location = new System.Drawing.Point(96, 76);
+            this.lblLink.Name = "lblLink";
+            this.lblLink.Size = new System.Drawing.Size(300, 32);
+            this.lblLink.TabIndex = 12;
+            this.lblLink.Text = "© 2022 Anime4000, Deezer, Google\r\n© 2022 CureComp Technology Trading && Services";
+            this.lblLink.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.lblLink);
+            this.Controls.Add(this.lblSplit2);
             this.Controls.Add(this.lblSplit1);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnSetSavePath);
@@ -472,6 +495,8 @@ namespace SpleeterFrontEnd
         private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.Label lblSplit1;
         private System.Windows.Forms.Timer timerGetVersion;
+        private System.Windows.Forms.Label lblSplit2;
+        private System.Windows.Forms.Label lblLink;
     }
 }
 
