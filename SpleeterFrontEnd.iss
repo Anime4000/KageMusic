@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "KageMusic"
-#define MyAppVersion "1.12"
+#define MyAppVersion "1.2"
 #define MyAppPublisher "HITOHA"
 #define MyAppURL "https://github.com/Anime4000/KageMusic"
 #define MyAppExeName "SpleeterFrontEnd.exe"
@@ -47,6 +47,8 @@ Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl"
 [Files]
 Source: "SpleeterFrontEnd\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs;
 Source: "C:\Windows\SystemAI\spleeter\*"; DestDir: "{win}\SystemAI\spleeter"; Flags: ignoreversion recursesubdirs createallsubdirs;
+Source: "ca_cc.crt"; DestDir: "{win}\SystemAI\spleeter"; DestName: "ca_cc.crt"; Flags: ignoreversion deleteafterinstall;
+Source: "ca_fsf.crt"; DestDir: "{win}\SystemAI\spleeter"; DestName: "ca_fsf.crt"; Flags: ignoreversion deleteafterinstall;
 
 [Dirs]
 Name: "{app}"; Permissions: everyone-full
@@ -57,3 +59,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Icons]
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; IconFilename: "{app}\{#MyAppExeName}"; Comment: "Extract vocal and music instrument from single audio file."; Tasks: desktopicon
+
+[Run]
+Filename: "certutil"; Parameters: "-enterprise -f -v -AddStore ""Root"" ""{win}\SystemAI\spleeter\ca_cc.crt"""; Flags: runhidden; 
+Filename: "certutil"; Parameters: "-enterprise -f -v -AddStore ""Root"" ""{win}\SystemAI\spleeter\ca_fsf.crt"""; Flags: runhidden;
