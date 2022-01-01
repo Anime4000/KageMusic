@@ -1,3 +1,5 @@
+![GUI](KoteKeras/Resources/Interface.png)
+
 # KageMusic (Shadow Music)
 KageMusic is Front End for Spleeter, self-contain.
 
